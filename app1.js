@@ -9,7 +9,7 @@ GAME RULES:
 
 */
 
-var scores, roundScore, activePlayer, gamePlaying;
+var scores, roundScore, activePlayer, gamePlaying, input, winningScore;
 
 //kutsutaan luotua init funktiota, jossa muuttujat. Koska DRY = Don't Repeat Yourself
 init();
@@ -22,6 +22,23 @@ var lastDice;
 /*function btn() {
 
 }*/
+document.querySelector('.btn-set').addEventListener('click', function() {
+  input = document.querySelector('.final-score').value;
+
+
+  //Undefined, 0, null or "" are COERCED to false
+  //Anything else is COERCED to true
+
+  if (input) {
+    winningScore = input;
+  } else {
+    winningScore = 100;
+  }
+
+  document.querySelector('.winning-score').innerHTML = "Game to " + winningScore + "!";
+  console.log(winningScore);
+})
+
 
 document.querySelector('.btn-roll').addEventListener('click', function() {
   if(gamePlaying) {
@@ -81,7 +98,7 @@ document.querySelector('.btn-hold').addEventListener('click', function() {
     //update the UI
     document.querySelector('#score-' + activePlayer).textContent = scores[activePlayer];
 
-    var input = document.querySelector('.final-score').value;
+    /*var input = document.querySelector('.final-score').value;
     var winningScore;
 
     //Undefined, 0, null or "" are COERCED to false
@@ -91,7 +108,7 @@ document.querySelector('.btn-hold').addEventListener('click', function() {
       winningScore = input;
     } else {
       winningScore = 100;
-    }
+    }*/
 
 
 

@@ -36,8 +36,7 @@ document.querySelector('.btn-set').addEventListener('click', function() {
   }
 
   document.querySelector('.winning-score').innerHTML = "Game to " + winningScore + "!";
-  console.log(winningScore);
-})
+  })
 
 
 document.querySelector('.btn-roll').addEventListener('click', function() {
